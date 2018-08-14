@@ -16,13 +16,13 @@ $url=$urlBase+"/sites/"+$site;
 
 write-host("Deleting SiteCollections");
 
-New-SPSite $url -ContentDatabase $cdb -OwnerAlias "domain\user";
+Remove-SPSite -Identity $url -GradualDelete -confirm:$false -ErrorAction SilentlyContinue
 
 write-host("Deleting Content DB");
 
 $cdb="WSS_Content_"+$site;
 
-New-SPContentDatabase $cdb -WebApplication $urlBase
+Remove-SPContentDatabase $cdb  -confirm:$false -ErrorAction SilentlyContinue -force
 
 
 

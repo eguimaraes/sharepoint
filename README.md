@@ -1,3 +1,11 @@
 # sharepoint
 SharePoint ToolBox
-SharePoint POwerShell Scripts and CSOM/JSOM Code. Just Another ToolBox Vault
+SharePoint PowerShell Scripts and CSOM/JSOM Code.
+
+Tools:
+
+Massive SiteCollections creation with exclusive Content Database associated to it
+
+Massive SiteCollections and Content Database delet
+
+New webapplication creation

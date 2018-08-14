@@ -6,6 +6,6 @@ Tools:
 
 Massive SiteCollections creation with exclusive Content Database associated to it
 
-Massive SiteCollections and Content Database delet
+Massive SiteCollections and Content Database delete
 
 New webapplication creation

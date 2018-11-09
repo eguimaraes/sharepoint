@@ -1,3 +1,6 @@
+
+//carregar https://www.nuget.org/packages/Microsoft.SharePointOnline.CSOM/
+//Install-Package Microsoft.SharePointOnline.CSOM -Version 16.1.8210.1200
 using System;
 using System.Collections.Generic;
 using System.Linq;

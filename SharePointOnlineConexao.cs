@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.SharePoint.Client;
 using System.Security;
 
-namespace IUObservatorio
+namespace Nem
 {
     class Program
     {

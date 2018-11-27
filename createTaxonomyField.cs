@@ -97,4 +97,15 @@ using System.Collections.Generic;
             }
         }
     }
+/*
+//TaxonomyFieldValue termValue = new TaxonomyFieldValue();
+                     //string[] term = tagsString.Split('|');
+                     //termValue.Label = term[0];
+                     //termValue.TermGuid = term[1];
+                     //termValue.WssId = -1;
+                     //taxKeywordField.SetFieldValueByValue(listItem, termValue);
+  
+                     taxKeywordField.SetFieldValueByValueCollection(listItem, new TaxonomyFieldValueCollection(clientRuntimeContext, tagsString, taxKeywordField));
+                     taxKeywordField.Update();
     
+*/

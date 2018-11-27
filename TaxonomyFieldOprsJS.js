@@ -34,7 +34,7 @@ function addTermToFieldValue(
               while (enumerator.moveNext()) {
                 var item = enumerator.get_current();
                 var guid = item.get_termGuid();
-                var wssId = item.get_wssId();
+                var wssId = item.get_wssId(); 
                 var label = item.get_label();
                 termStr += wssId + ';#' + label + '|' + guid + ';#';
               }

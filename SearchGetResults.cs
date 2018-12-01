@@ -1,4 +1,4 @@
-/ Original em https://usefulscripts.wordpress.com/2015/09/11/how-to-fetch-all-results-from-sharepoint-search-using-dot-net-managed-csom/
+// Original em https://usefulscripts.wordpress.com/2015/09/11/how-to-fetch-all-results-from-sharepoint-search-using-dot-net-managed-csom/
 
 private static ResultTable GetSearchResults(int startIndex,
 ClientContext clientContext)

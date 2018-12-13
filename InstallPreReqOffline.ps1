@@ -1,9 +1,6 @@
-#Directory path where SP 2016 RTM files are kept 
-$PreRequsInstallerPath= "E:"  
- 
-#Directory path where SP 2016 Pre-requisites files are kept 
-$PreRequsFilesPath = "C:\Prereqs" 
- 
+New-ItemProperty HKLM:\System\CurrentControlSet\Control\Lsa -Name "DisableLoopbackCheck" -Value "1" -PropertyType dword
+$PreRequsInstallerPath= "E:"
+$PreRequsFilesPath = "C:\Prereqs"  
 Start-Process "$PreRequsInstallerPath\PrerequisiteInstaller.exe" -Wait -ArgumentList "  ` 
               /SQLNCli:`"$PreRequsFilesPath\sqlncli.msi`" ` 
               /idfx11:`"$PreRequsFilesPath\MicrosoftIdentityExtensions-64.msi`" ` 

@@ -1,3 +1,6 @@
+write-host("Aguarde a instalação do .NET Framework 4.6 terminar para prosseguir")
+.\NDP452-KB2901907-x86-x64-AllOS-ENU.exe
+read-host();
 New-ItemProperty HKLM:\System\CurrentControlSet\Control\Lsa -Name "DisableLoopbackCheck" -Value "1" -PropertyType dword
 $PreRequsInstallerPath= "E:"
 $PreRequsFilesPath = "C:\Prereqs"  
@@ -13,3 +16,4 @@ Start-Process "$PreRequsInstallerPath\PrerequisiteInstaller.exe" -Wait -Argument
               /msvcrt11:`"$PreRequsFilesPath\vc_redist.x64.exe`" ` 
               /msvcrt14:`"$PreRequsFilesPath\vcredist_x64.exe`" ` 
               /dotnetfx:`"$PreRequsFilesPath\NDP452-KB2901907-x86-x64-AllOS-ENU.exe`""
+

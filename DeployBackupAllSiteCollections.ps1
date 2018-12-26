@@ -7,5 +7,5 @@ foreach ($site in $sites){
 $path=prefixo+$site.url.replace($url,"").replace($sufixo,"");
 if($path -eq prefixo ){$path=prefixo+$site.RootWeb.title}
 $path=$path+".bak";
-export-spweb -Identity $url -path $path -Force
+export-spweb -Identity $site.RootWeb.url -path $path -Force
 }

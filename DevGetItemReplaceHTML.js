@@ -1,4 +1,4 @@
-function GetItem(list,title,field,obj){
+function GetItem(list,title,field,obj,sufixo,prefixo){
 var retorno  
 var siteUrl=_spPageContextInfo.webAbsoluteUrl;
 var clientContext = new SP.ClientContext(siteUrl);
@@ -18,7 +18,7 @@ var listItemEnumerator = collListItem.getEnumerator();
     while (listItemEnumerator.moveNext()) {
         var oListItem = listItemEnumerator.get_current();
       
-         document.getElementById(obj).innerHTML=oListItem.get_item(field);
+         document.getElementById(obj).innerHTML=sufixo+oListItem.get_item(field)+prefixo;
           
       
            break; 

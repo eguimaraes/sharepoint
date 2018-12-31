@@ -19,7 +19,7 @@ var listItemEnumerator = collListItem.getEnumerator();
         var oListItem = listItemEnumerator.get_current();
       
            retorno= oListItem.get_item(field);
-            alert(retorno);
+          
       
            break; 
     }

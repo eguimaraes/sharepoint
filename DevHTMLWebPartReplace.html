@@ -60,7 +60,10 @@ htmlObj.innerHTML=prefixo+oListItem.get_item(field)+sufixo;
 
 $(document).ready(function(){
 
-SP.SOD.executeFunc('sp.js', 'SP.ClientContext', retrieveListItems)
+       setTimeout(function(){ SP.SOD.executeFunc('sp.js', 'SP.ClientContext', retrieveListItems); }, 5000);
+
+       
+
 })
 
 function retrieveListItems(){

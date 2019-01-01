@@ -1,9 +1,24 @@
 <div id="NomeFrame">
 <p>
-<strong class="ms-rteFontSize-3"><span id="nome" style="color: #000000; font-family: tahoma, sans-serif, arial, helvetica; font-weight: 400; white-space: pre-wrap;"></span></strong>
+<strong class="ms-rteFontSize-3"><span id="nome" style="color: #000000; font-family: tahoma, sans-serif, arial, helvetica; font-weight: 400; white-space: pre-wrap;"></span><span id="cnpj" style="color: #000000; font-family: tahoma, sans-serif, arial, helvetica; font-weight: 400; white-space: pre-wrap;"></span></strong>
 
 
-<strong class="ms-rteFontSize-3"><span id="cnpj" style="color: #000000; font-family: tahoma, sans-serif, arial, helvetica; font-weight: 400; white-space: pre-wrap;"></span></strong>
+</p> 
+
+</div>
+
+<div id="AzureFrame">
+<p >
+<strong class="ms-rteFontSize-3"><span id="subscription" style="color: #000000; font-family: tahoma, sans-serif, arial, helvetica; font-weight: 400; white-space: pre-wrap;">
+​​</span></strong></p> 
+</div>
+
+
+
+<div id="NomeFrame">
+<p>
+<strong class="ms-rteFontSize-3"><span id="nome" style="color: #000000; font-family: tahoma, sans-serif, arial, helvetica; font-weight: 400; white-space: pre-wrap;"></span><span id="cnpj" style="color: #000000; font-family: tahoma, sans-serif, arial, helvetica; font-weight: 400; white-space: pre-wrap;"></span></strong>
+
 
 </p> 
 
@@ -15,9 +30,7 @@
 </div>
 
 <script>
-       
-
-function GetItem(list,title,field,obj,prefixo,sufixo){
+function GetItem1(list,title,field,obj,prefixo,sufixo){
 var retorno 
 var htmlObj=""; 
 var siteUrl=_spPageContextInfo.webAbsoluteUrl;
@@ -37,7 +50,6 @@ clientContext.load(oList);
   
 clientContext.executeQueryAsync(
 function () {
-
 var listItemEnumerator = collListItem.getEnumerator();        
     while (listItemEnumerator.moveNext()) {
         var oListItem = listItemEnumerator.get_current();
@@ -49,25 +61,122 @@ htmlObj.innerHTML=prefixo+oListItem.get_item(field)+sufixo;
            break; 
     }
         },
-
                     function () {alert('Erro') } 
   
   
   
   )
-
 }
 
-function retrieveListItems(){
 
-   GetItem("config","NOME","valor","nome","", " - ");
+function GetItem2(list,title,field,obj,prefixo,sufixo){
+var retorno 
+var htmlObj=""; 
+var siteUrl=_spPageContextInfo.webAbsoluteUrl;
+var clientContext = new SP.ClientContext(siteUrl);
+var web = clientContext.get_web();
+var oList = clientContext.get_web().get_lists().getByTitle(list);
+var camlQuery = new SP.CamlQuery();
+camlQuery.set_viewXml("<View><Query><Where><Eq><FieldRef Name='Title' /><Value Type='Text'>"+title+"</Value></Eq></Where></Query><RowLimit>1000</RowLimit></View>");
+  collListItem = oList.getItems(camlQuery);
+        
+    clientContext.load(collListItem);
+  
+  
+clientContext.load(web); 
+clientContext.load(oList);
+  clientContext.load(collListItem);
+  
+clientContext.executeQueryAsync(
+function () {
+var listItemEnumerator = collListItem.getEnumerator();        
+    while (listItemEnumerator.moveNext()) {
+        var oListItem = listItemEnumerator.get_current();
+      
+htmlObj=document.getElementById(obj);         
+htmlObj.innerHTML=prefixo+oListItem.get_item(field)+sufixo;
+          
+      
+           break; 
+    }
+        },
+                    function () {alert('Erro') } 
+  
+  
+  
+  )
+}
 
-GetItem("config","CNPJ","valor","cnpj","CNPJ: ", "");
-   GetItem("config","AZURE-SUBSCRIPTION","valor","subscription","Azure Subscription Id: ", "");
+
+
+
+       
+function GetItem3(list,title,field,obj,prefixo,sufixo){
+var retorno 
+var htmlObj=""; 
+var siteUrl=_spPageContextInfo.webAbsoluteUrl;
+var clientContext = new SP.ClientContext(siteUrl);
+var web = clientContext.get_web();
+var oList = clientContext.get_web().get_lists().getByTitle(list);
+var camlQuery = new SP.CamlQuery();
+camlQuery.set_viewXml("<View><Query><Where><Eq><FieldRef Name='Title' /><Value Type='Text'>"+title+"</Value></Eq></Where></Query><RowLimit>1000</RowLimit></View>");
+  collListItem = oList.getItems(camlQuery);
+        
+    clientContext.load(collListItem);
+  
+  
+clientContext.load(web); 
+clientContext.load(oList);
+  clientContext.load(collListItem);
+  
+clientContext.executeQueryAsync(
+function () {
+var listItemEnumerator = collListItem.getEnumerator();        
+    while (listItemEnumerator.moveNext()) {
+        var oListItem = listItemEnumerator.get_current();
+      
+htmlObj=document.getElementById(obj);         
+htmlObj.innerHTML=prefixo+oListItem.get_item(field)+sufixo;
+          
+      
+           break; 
+    }
+        },
+                    function () {alert('Erro') } 
+  
+  
+  
+  )
+}
+
+   
+function carregar(){ 
+
+$( document ).ready(function() {
+
+setTimeout(function(){  GetItem1("config","NOME","valor","nome","", " - "); }, 1000);
+setTimeout(function(){GetItem2("config","CNPJ","valor","cnpj","CNPJ: ", ""); }, 2000);
+setTimeout(function(){     GetItem3("config","AZURE-SUBSCRIPTION","valor","subscription","Azure Subscription Id: ", ""); }, 3000);
+
+  
+});
+ 
 
 
 
 
-   }
 
-</script>
+
+ 
+ 
+}
+
+
+ExecuteOrDelayUntilScriptLoaded(carregar, "sp.js")
+
+SP.SOD.executeFunc('sp.js', 'SP.ClientContext', carregar);
+
+carregar();
+  </script>
+
+

@@ -1,6 +1,6 @@
- var palavrasChave = jToken["palavrasChave"]["temas"].ToString();
+ var palavrasChave = jToken["info1"]["infochild"].ToString();
 var JsonObj = JToken.Parse(palavrasChave);
-var temasmms= new JProperty("TemasMMS", JsonObj);
-jToken.Last.AddAfterSelf(temasmms);
+var CampoSHP= new JProperty("CampoSHP", JsonObj);
+jToken.Last.AddAfterSelf(CampoSHP);
 Console.WriteLine(jToken.ToString());
 Console.ReadLine();

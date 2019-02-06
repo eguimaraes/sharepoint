@@ -1,0 +1,1 @@
+New-SPConfigurationDatabase -DatabaseName "spconfigdb" -DatabaseServer "localhost" -Passphrase (ConvertTo-SecureString "EdKa@20121993" -AsPlainText -force) -FarmCredentials (Get-Credential) -LocalServerRole SingleServerFarm

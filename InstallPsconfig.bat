@@ -1,0 +1,1 @@
+psconfig -cmd configdb -create -server <SQLServerName> -database <ConfigDatabaseName> -user <DOMAIN\farmaccount> -password <FarmAccountPassword> -passphrase <PassPhrase> -admincontentdatabase <AdminContentDatabaseName>

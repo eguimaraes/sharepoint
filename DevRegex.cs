@@ -1,3 +1,6 @@
+
+//https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex?view=netframework-4.7.2
+
 StreamReader sr = new StreamReader(filename);
 string input;
 string pattern = @"\b(\w+)\s\1\b";

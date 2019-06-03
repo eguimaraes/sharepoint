@@ -1,6 +1,7 @@
 #Original at https://gallery.technet.microsoft.com/office/PreRequisites-for-7f719ff3
 #https://gallery.technet.microsoft.com/DownloadInstall-SharePoint-e6df9eb8
 set-executionpolicy remotesigned
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
 #*************************************************************************************** 
 # This script downloads SharePoint Server 2016 RTM  

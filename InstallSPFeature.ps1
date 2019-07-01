@@ -6,7 +6,7 @@ Add-SPSolution
    [-WhatIf]
    [<CommonParameters>]
    Add-SPSolution -LiteralPath c:\contoso_solution.wsp
-   
+   Add-SPSolution -LiteralPath $PWD\"TableauWP.wsp"
    
 
 Install-SPSolution

@@ -1,0 +1,65 @@
+Couple of things to check.
+
+Solution # 1 simply change the application pool to use SharePoint Web Services System for search service applications and check.
+
+Go IIS
+In IIS > Expand server > Expand sites > Expand “SharePoint Web Services
+Now check all the GUID 1 by 1 in content view unless you find searchadmin.svc and searchservice.svc
+Right click GUID go to advance settings
+Change the application to “SharePoint Web Services” > Click OK
+Solution # 2Enable the timer job and do IIS reset:
+
+Run below PS command to enable the service.
+
+Enable-SPTimerJob job-application-server-admin-service
+
+Result ==> IsDisabled: False
+Do Net Stop sptimerv4
+Do Net start sptimerv4
+Do iisreset
+Solution 3
+
+Ensure the account has full control permissions on the Search service application and IIS account used by this service application
+
+Open Central Admin > Select Security > Select “Configure service accounts”
+Select the search service application
+For “select account for this component” Select a account which has full permission
+SharePoint Server: "The search service is not able to connect to the machine that hosts the administration component"
+
+shareimprove this answer
+answered Feb 11 '16 at 18:26
+
+Waqas Sarwar MVP♦
+54.4k1212 gold badges3232 silver badges7070 bronze badges
+Checked all these settings, but no luck. I had deleted the previous search service application which was stuck in 'paused for:external request' state and re-created this new search service application through Configuration wizard in SharePoint Foundation 2013 and this is causing above problem. – Amol Kadam Feb 12 '16 at 9:55
+how many search application you have now – Waqas Sarwar MVP♦ Feb 12 '16 at 16:38
+Only One Search Service Application that I am having in the Farm. – Amol Kadam Feb 15 '16 at 7:07
+add a comment
+
+3
+
+You should run the psconfiguration wizard once and that should definitely solve your problem.
+
+shareimprove this answer
+edited Oct 18 '18 at 6:46
+
+Md. Tahmidul Abedin
+1,29977 silver badges2121 bronze badges
+answered Oct 18 '18 at 6:10
+
+yash.kamdar
+7851515 bronze badges
+This worked for me, why i never think of this! – David L. Feb 20 at 17:38
+add a comment
+
+1
+
+What solved it for me: moving the SearchAdministrationComponent back and forth
+
+Add-PsSnapin Microsoft.SharePoint.PowerShell -ErrorAction SilentlyContinue
+cls
+
+
+$ssa = Get-SPEnterpriseSearchServiceApplication "Search Service Application"
+$admin = Get-SPEnterpriseSearchAdministrationComponent -SearchApplication $ssa
+$admin | Set-SPEnterpriseSearchAdministrationComponent -SearchServiceInstance SERVERNAME -Force

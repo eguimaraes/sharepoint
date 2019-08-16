@@ -1,3 +1,8 @@
+Add-PsSnapin Microsoft.SharePoint.PowerShell -ErrorAction SilentlyContinue
+$ssa = Get-SPEnterpriseSearchServiceApplication "Search Service Application"
+$admin = Get-SPEnterpriseSearchAdministrationComponent -SearchApplication $ssa
+$admin | Set-SPEnterpriseSearchAdministrationComponent -SearchServiceInstance "server" -Force
+
 Couple of things to check.
 
 Solution # 1 simply change the application pool to use SharePoint Web Services System for search service applications and check.

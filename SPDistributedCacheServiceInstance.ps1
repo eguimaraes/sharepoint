@@ -1,3 +1,7 @@
+Export-CacheClusterConfig -Path $PWD\AF.XML
+
+
+
 $SPFarm = Get-SPFarm
 $cacheClusterName = "SPDistributedCacheCluster_" + $SPFarm.Id.ToString()
 $cacheClusterManager = [Microsoft.SharePoint.DistributedCaching.Utilities.SPDistributedCacheClusterInfoManager]::Local

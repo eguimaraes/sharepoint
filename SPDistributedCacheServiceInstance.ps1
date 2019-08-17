@@ -1,0 +1,14 @@
+Remove-SPDistributedCacheServiceInstance
+Add-SPDistributedCacheServiceInstance -Role WebFrontEndWithDistributedCache
+
+Add-SPDistributedCacheServiceInstance -Role SingleServerFarm
+Add-SPDistributedCacheServiceInstance -Role DistributedCache
+Add-SPDistributedCacheServiceInstance -Role WebFrontEndWithDistributedCache
+
+
+
+#opções
+#SingleServerFarm
+#DistributedCache
+#WebFrontEndWithDistributedCache
+

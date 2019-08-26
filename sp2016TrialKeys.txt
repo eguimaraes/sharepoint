@@ -1,3 +1,16 @@
 Enterprise trial product key: NQGJR-63HC8-XCRQH-MYVCH-3J3QR
 Standard trial product key: RTNGH-MQRV6-M3BWQ-DB748-VH7DM
 Project Server trial license key: Y2WC2-K7NFX-KWCVC-T4Q8P-4RG9W
+
+http://vladilen.com/content/sharepoint-keys
+Product keys for Microsoft SharePoint 2010, 2013, 2016, 2019: 
+SharePoint 2019 Enterprise product key: M692G-8N2JP-GG8B2-2W2P7-YY7J6 (trial)
+SharePoint 2019 Standard product key: F2DPD-HPNPV-WHKMK-G7C38-2G22J (trial)
+SharePoint 2019 Project Server trial license key: R9946-QXNHR-62JPQ-3H3QC-TMWJT (trial)
+SharePoint 2016 RTM evaluation key: NQGJR-63HC8-XCRQH-MYVCH-3J3QR
+SharePoint 2013 Evaluation key: NQTMW-K63MQ-39G6H-B2CH9-FRDWJ
+SharePoint 2013 Foundation: no key needed
+SharePoint 2010 Standard trial key: PTTCF-PCY26-D9V8F-8JF8B-XH8JP
+SharePoint 2010 Enterprise trial key: VK7BD-VBKWR-6FHD9-Q3HM9-6PKMX
+SharePoint 2019 Server is available to download from Microsoft for Evaluation: 
+https://www.microsoft.com/en-us/download/details.aspx?id=57462

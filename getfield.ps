@@ -1,0 +1,26 @@
+$web = Get-SPWeb http://YourWebURL/
+$fieldId = "Your-Field-GUID"
+
+#Get the field in the web
+$fieldInWeb = $web.Fields | Where {$_.Id.ToString().StartsWith($fieldId) }
+if($fieldInWeb) {
+ Write-Output "'$($fieldInWeb.Title)' in Web: '$($web.Title)'"
+}
+
+#Get all ContentTypes in the web containing the field
+foreach($ct in $web.ContentTypes) {
+ $fieldInCt = $ct.Fields | Where {$_.Id.ToString().StartsWith($fieldId) }
+ if($fieldInCt) {
+  Write-Output "'$($fieldInCt.Title)' in CT: '$($ct.Name)'"
+ }
+}
+
+#Get all lists in the web containing the field
+foreach($list in $web.Lists) {
+ $fieldInList = $list.Fields | Where {$_.Id.ToString().StartsWith($fieldId) }
+ if($fieldInList) {
+  Write-Output "'$($fieldInList.Title)' in List: '$($list.Title)'"
+ }          
+}
+ 
+$web.Dispose()

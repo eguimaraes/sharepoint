@@ -1,0 +1,1 @@
+http://<siteurl>/_api/web/sitegroups/getbyname('SharePointGroupName')/CanCurrentUserViewMembership

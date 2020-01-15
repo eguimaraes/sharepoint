@@ -1,7 +1,9 @@
 <script>
+   
+    var siteurl = _spPageContextInfo.webAbsoluteUrl;
+        
     $.ajax({
-        var siteurl = _spPageContextInfo.webAbsoluteUrl;
-        $.ajax({
+        
                    url: siteurl + "/_api/web/lists/getbytitle('Projects')/items(3)",
                    method: "GET",
                    headers: { "Accept": "application/json; odata=verbose" },
@@ -14,5 +16,6 @@
                       alert("Error: "+ JSON.stringify(error));
                  }
           });
-    });
+
+
 </script>

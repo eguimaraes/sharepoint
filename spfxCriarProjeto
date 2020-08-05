@@ -1,0 +1,16 @@
+$nome=$args[0]
+md $nome
+cd $nome
+yo @microsoft/sharepoint
+npm install jquery@2
+npm install jqueryui
+npm install @types/jquery@2
+npm install @types/jqueryui
+npm install @types/microsoft-ajax @types/sharepoint --save-dev
+npm install @types/angular --save
+npm install @microsoft/sp-core-library
+npm install moment --save 
+npm install angular --save
+npm install @pnp/logging @pnp/common @pnp/odata @pnp/sp --save
+npm install @pnp/sp @pnp/graph --save
+npm shrinkwrap

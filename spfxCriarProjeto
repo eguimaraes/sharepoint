@@ -13,4 +13,9 @@ npm install moment --save
 npm install angular --save
 npm install @pnp/logging @pnp/common @pnp/odata @pnp/sp --save
 npm install @pnp/sp @pnp/graph --save
+npm install jquery --save
+npm install @types/jquery --save-dev
+npm install bootstrap@4 --save
+npm install @types/bootstrap@4 --save-dev
+npm install --save @fontawesome/fontawesome-free
 npm shrinkwrap

@@ -1,5 +1,3 @@
-
-
 function getWorkflows ($url) {
 Connect-PnPOnline -Url $url -UseWebLogin
 #$site=Get-PnPSite 
@@ -15,7 +13,7 @@ foreach($lista in $listas){
 if ($lista.WorkflowAssociations.count -gt 0){
    
 
-   $valor=$url+","+$lista.Title+","+$lista.WorkflowAssociations.name+","+$lista.AutoStartChange+","+$lista.AutoStartCreate+","+$lista.Created+","+$lista.Modified+","+$lista.Enabled;
+   $valor=$url+","+$lista.Title+","+$lista.WorkflowAssociations.name+","+$lista.WorkflowAssociations.AutoStartChange+","+$lista.WorkflowAssociations.AutoStartCreate+","+$lista.WorkflowAssociations.Created+","+$lista.WorkflowAssociations.Modified+","+$lista.WorkflowAssociations.Enabled;
 
      escreveResultados($valor)
      

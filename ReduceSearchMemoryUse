@@ -1,0 +1,2 @@
+Set-SPEnterpriseSearchService –PerformanceLevel Reduced
+notepad C:\Program Files\Microsoft Office Servers\15.0\Search\Runtime\1.0\noderunner.exe.config

@@ -1,2 +1,3 @@
 Set-SPEnterpriseSearchService –PerformanceLevel Reduced
-notepad C:\Program Files\Microsoft Office Servers\15.0\Search\Runtime\1.0\noderunner.exe.config
+notepad C:\Program Files\Microsoft Office Servers\16.0\Search\Runtime\1.0\noderunner.exe.config
+##edit line from <nodeRunnerSettings memoryLimitMegabytes="0" /> to <nodeRunnerSettings memoryLimitMegabytes="250" />

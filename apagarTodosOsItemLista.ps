@@ -1,0 +1,5 @@
+$site=get-spsite utl
+$web=$site.rootweb
+$list=web.lists["title ou ID"]
+$items=$list.Items
+foreach ($item in $items){$list.Items[0].Delete()}

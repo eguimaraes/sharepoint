@@ -1,0 +1,6 @@
+To map your HTTPS-based site to a network drive, yopu should use the format:
+
+\\websitename\@ssl@port#\DavWWWRoot
+like
+
+\\www.yourwebsite.com\@ssl@443\DavWWWRoot

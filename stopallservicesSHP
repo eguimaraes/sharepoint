@@ -1,0 +1,14 @@
+iisreset /stop
+Stop-Service -Name "MSSQLSERVER"
+$services=get-service;
+foreach($service in $services){
+
+if ($service.DisplayName.Contains("SharePoint")){
+
+Stop-Service -Name $service.Name
+
+
+}
+}
+
+

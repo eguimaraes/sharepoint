@@ -1,0 +1,4 @@
+$arqs=ls
+foreach ($arq in $arqs){add-spsolution -LiteralPath $PWD\$arq}
+$webapps=$webapps=Get-SPWebApplication
+foreach ($webapp in $webapps) {foreach ($arq in $arqs){install-spsolution $arq.Name -GACDeployment -Force -WebApplication $webapp  }}

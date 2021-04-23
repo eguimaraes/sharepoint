@@ -1,0 +1,1 @@
+Get-SPMetadataServiceApplication -Identity "ManagedMetadataServiceApp1"

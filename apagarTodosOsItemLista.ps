@@ -1,5 +1,7 @@
-$site=get-spsite utl
+$site=get-spsite url
 $web=$site.rootweb
 $list=web.lists["title ou ID"]
 $items=$list.Items
-foreach ($item in $items){$list.Items[0].Delete()}
+foreach ($item in $items){write-host ("Apagando"+$list.Items[0].title); $list.I
+tems[0].Delete();}
+

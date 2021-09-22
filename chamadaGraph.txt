@@ -1,0 +1,1 @@
+https://graph.microsoft.com/v1.0/{resource}?[query_parameters]

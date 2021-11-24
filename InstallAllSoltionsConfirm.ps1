@@ -1,5 +1,5 @@
 Add-PSSnapin Microsoft.SharePoint.PowerShell
-$webapps="http://maternidadebrasilia/"
+$webapps=read-host "Digite a URL do site"
 foreach($webapp in $webapps){
 $cont=read-host "Executando para ",$webapp,"continuar?(s/n)"
 if ($cont -eq "s") {

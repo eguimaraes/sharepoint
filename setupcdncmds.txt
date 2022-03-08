@@ -1,0 +1,12 @@
+https://docs.microsoft.com/en-us/sharepoint/dev/spfx/enable-microsoft-365-content-delivery-network?tabs=msposh
+Get-SPOTenantCdnEnabled -CdnType Public
+Get-SPOTenantCdnOrigins -CdnType Public
+Get-SPOTenantCdnPolicies -CdnType Public
+m365 spo cdn get --type Public
+Set-SPOTenantCdnEnabled -CdnType Public
+m365 spo cdn set --type Public --enabled true
+Add-SPOTenantCdnOrigin -CdnType Public -OriginUrl */cdn
+m365 spo cdn origin add --origin */CDN
+m365 spo cdn origin list --type Public
+Get-SPOTenantCdnOrigins -CdnType Public
+

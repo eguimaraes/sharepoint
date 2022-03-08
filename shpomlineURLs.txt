@@ -1,0 +1,9 @@
+Indice - https://{your-tenant-prefix}-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx#/classicFeatures
+Repositorio de termos - https://{your-tenant-prefix}-admin.sharepoint.com/_layouts/15/TermStoreManager.aspx
+User profile - https://{your-tenant-prefix}-admin.sharepoint.com/_layouts/15/TenantProfileAdmin/ManageUserProfileServiceApplication.aspx
+Search - https://{your-tenant-prefix}-admin.sharepoint.com/_layouts/15/searchadmin/TA_SearchAdministration.aspx
+Apps - https://{your-tenant-prefix}-admin.sharepoint.com/_layouts/15/online/TenantAdminApps.aspx
+BCS - https://{your-tenant-prefix}-admin.sharepoint.com/_layouts/15/bdc/TA_BCSHome.aspx
+Secure Store - https://{your-tenant-prefix}-admin.sharepoint.com/_layouts/15/sssvc/TA_ManageSSSvcApplication.aspx
+Record Store - https://{your-tenant-prefix}-admin.sharepoint.com/_layouts/15/TA_OfficialFileAdmin.aspx
+InfoPath - https://{your-tenant-prefix}-admin.sharepoint.com/_layouts/15/TenantForms.FormServer.aspx

@@ -1,0 +1,33 @@
+using (var contextNavigation = new ClientContext(<siteURL>))
+{
+    contextNavigation.Credentials = new SharePointOnlineCredentials(UserName, SecurePass);
+    Web web = contextNavigation.Web;
+    contextNavigation.Load(web, w => w.Navigation);
+    contextNavigation.Load(web);
+    contextNavigation.ExecuteQuery();
+
+    //Start working on Navigation
+    NavigationNodeCollection lefthandNav = web.Navigation.QuickLaunch;
+    contextNavigation.Load(lefthandNav);
+    contextNavigation.ExecuteQuery();
+    NavigationNodeCreationInformation nodeToCreate = new NavigationNodeCreationInformation();
+    NavigationNode navNode = lefthandNav[<num>];
+    contextNavigation.Load(navNode);
+    contextNavigation.ExecuteQuery();
+
+    if (navNode.Title.ToLower().Contains(<value to check>))
+    {
+        nodeToCreate.PreviousNode = navNode;
+        nodeToCreate.Title = navNode.Title;
+        nodeToCreate.Url = <NewUrl>;
+        nodeToCreate.IsExternal = <bool>;
+        navIds.Add(navNode.Id); //For deleting the existing node after creating the new one
+    }
+
+    if (nodeToCreate.Title != "")
+    {
+        lefthandNav.Add(nodeToCreate);
+    }
+    //Use gist – https://gist.github.com/AsishP/70511f5eac4f069d8195ed36301758ab to delete
+    contextNavigation.ExecuteQuery();
+}

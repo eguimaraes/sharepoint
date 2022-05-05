@@ -1,0 +1,6 @@
+{
+    "sourceDirectory": "src",
+    "sharePointSiteUrl": "http://url",
+    "publishingScope": "SaveOnly",
+    "authenticationType": "NTLM"
+}

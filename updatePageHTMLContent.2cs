@@ -1,0 +1,134 @@
+/*{
+  "siteURL": "http://h9j",
+  "webUrl": "/pt/sobre-nos-site/blog-site/",
+  "lista": "Páginas",
+  "OldText": "<a href=\"https&#58;//novedejulho.centraldemarcacao.com.br/\" class=\"btn btn-primary\" target=\"_blank\" style=\"line-height&#58;40px;font-size&#58;20px;word-spacing&#58;1px;\">Agendamento OnLine",
+  "newText": "new",
+  "field": "conteudo",
+  "query": "dddd"
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ekis.util.editpage
+{
+    class configuracao
+    {
+       public string siteURL = "";
+        public string webUrl = "";
+        public string lista = "";
+        public string OldText = "";
+        public string newText = "";
+        public string field = "";
+        public string query = "";
+    }
+}
+
+
+
+*/
+
+using System;
+using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.SharePoint;
+using Microsoft.SharePoint.Administration;
+using Microsoft.SharePoint.Taxonomy;
+using Microsoft.SharePoint.Publishing;
+using Microsoft.SharePoint.Publishing.Navigation;
+
+
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+
+namespace ekis.util.editpage
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+           StreamReader stream = new StreamReader(args[0]);
+
+            configuracao config=JsonConvert.DeserializeObject<configuracao>(stream.ReadToEnd());
+
+            using (SPSite site=new SPSite(config.siteURL) )
+            {
+                using (SPWeb web = site.AllWebs[config.webUrl])
+                {
+
+                   SPList list = web.Lists[config.lista];
+
+                    foreach (SPListItem item in list.Items) {
+                        
+                     if (item["PublishingPageContent"]!=null && item["PublishingPageContent"].ToString().IndexOf("novedejulho.centraldemarcacao.com.br") > 0) {
+
+
+                            string cp = item["PublishingPageContent"].ToString();
+
+                            /*<a href="https&#58;//novedejulho.centraldemarcacao.com.br/" class="btn btn-primary" target="_blank" style="line-height&#58;40px;font-size&#58;20px;word-spacing&#58;1px;">Agendamento?</a>*/
+                            /*
+                             <a href="https://novedejulho.centraldemarcacao.com.br/?_ga=2.232064157.364427267.1648564693-1543057767.1610997750" class="btn btn-primary" target="_blank">agendamento online​</a>
+                             
+                             
+                             */
+                            web.GetFileByUrl(config.siteURL+config.webUrl+"Paginas"+"/"+item["Nome"]).CheckOut();
+                            
+
+                            item["PublishingPageContent"] = cp.Replace(config.OldText, "<a>");
+
+                            item.Update();
+
+                            web.GetFileByUrl(config.siteURL + config.webUrl + "Paginas/" + item["Nome"]).CheckIn("Atualização de botão");
+
+                            web.GetFileByUrl(config.siteURL + config.webUrl + "Paginas/" + item["Nome"]).Publish("Atualização de botão");
+
+
+
+
+
+
+
+
+                            Console.WriteLine(item["PublishingPageContent"]);
+
+                            Console.WriteLine(item["Nome"]);
+
+                            break;
+
+
+
+                        }
+                 
+                    
+                    }
+                }
+
+
+
+            }
+
+
+                Console.WriteLine("Digite qq tecla para continuar");
+
+            Console.ReadLine();         
+
+           
+
+
+        }
+    }
+ }
+
+
+
+
+

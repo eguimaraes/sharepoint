@@ -52,7 +52,7 @@ namespace ekis.util.editpage
                             {
                                 HtmlAttribute att = link.Attributes["href"];
                                 
-                                if (att.Value.IndexOf("novedejulho.centraldemarcacao.com.br") > 0) {
+                                if (att.Value.IndexOf(config.OldText) > 0) {
 
                                     link.Remove();
                                 

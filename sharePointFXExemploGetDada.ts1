@@ -1,0 +1,64 @@
+import {
+  SPHttpClient,
+  SPHttpClientResponse
+} from '@microsoft/sp-http';
+
+export interface Dados {
+  value: Dado[];
+}
+
+export interface Dado {
+  Title: string;
+  Id: string;
+  link: string;
+  AttachmentFiles: object;
+}
+
+
+export interface ICarrosselWebPartProps {
+  description: string;
+}
+
+export default class CarrosselWebPart extends BaseClientSideWebPart<ICarrosselWebPartProps> {
+
+  private _isDarkTheme: boolean = false;
+  private _environmentMessage: string = '';
+
+  protected onInit(): Promise<void> {
+    this._environmentMessage = this._getEnvironmentMessage();
+
+    return super.onInit();
+  }
+
+  private _renderList(items: Dado[]): void {
+    let html: string = '';
+    items.forEach((item: Dado) => {
+      html += `<div id="item">
+      <img src="${item.AttachmentFiles[0].ServerRelativeUrl}" />
+    </div>  `;
+    
+    });
+  
+    const listContainer: Element = this.domElement.querySelector('#itemsCarrossel');
+    console.log(html);
+    listContainer.innerHTML = html;
+  }
+
+  private _renderListAsync(): void {
+    this._getListData()
+      .then((response) => {
+        this._renderList(response.value);
+
+        
+      });
+  }
+
+  private _getListData(): Promise<Dados> {
+    return this.context.spHttpClient.get(this.context.pageContext.web.absoluteUrl + `/_api/web/lists/getbytitle('carrossel')/items?$orderby=Ordem&$select=AttachmentFiles,Title,link,Ordem&$expand=AttachmentFiles`, SPHttpClient.configurations.v1)
+      .then((response: SPHttpClientResponse) => {
+        
+        
+
+        return response.json();
+      });
+  }

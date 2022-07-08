@@ -1,0 +1,3 @@
+GET https://{site_url}/_api/web/lists/GetByTitle('Test')?$select=ListItemEntityTypeFullName
+Authorization: "Bearer " + accessToken
+Accept: "application/json;odata=nometadata"

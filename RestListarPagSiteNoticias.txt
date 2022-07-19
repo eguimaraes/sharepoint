@@ -1,1 +1,1 @@
-https://{urltenant}/sites/MPI_Dev//_api/web/lists/GetByTitle('P%C3%A1ginas%20do%20Site')$filter=tipoPagina eq 'Noticias'
+https://{urltenant}/_api/web/lists/GetByTitle('P%C3%A1ginas%20do%20Site')?$filter=tipoPagina eq 'Noticias'

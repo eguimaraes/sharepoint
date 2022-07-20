@@ -1,0 +1,7 @@
+https://{tenant}.sharepoint.com/_layouts/15/getpreview.ashx?path={pathToTheDocument}
+
+https://{tenant}.sharepoint.com/_layouts/15/getpreview.ashx?path={pathToTheDocument}
+
+0 - 300px 1 - 480px 2 - 750px 3 - 1024px 4 - 1600px 5 - 2560px 6 - Original width of the document
+
+Original em : https://vitalyzhukov.com/en/sharepoint-online-document-thumbnail

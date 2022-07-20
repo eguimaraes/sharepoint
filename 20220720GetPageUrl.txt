@@ -1,0 +1,3 @@
+https://fabrikam.sharepoint.com/_api/web/Lists/getbytitle('Pages')/items?$top=1&$select=Id,Title,FileRef
+
+Original em, https://sharepoint.stackexchange.com/questions/88617/how-can-i-get-the-url-of-a-pages-list-with-rest-api

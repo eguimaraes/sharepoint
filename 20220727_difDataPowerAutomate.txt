@@ -1,0 +1,7 @@
+div(sub(ticks(utcNow()),ticks(addDays(utcNow(),-1))),600000000)
+https://tomriha.com/how-to-calculate-difference-between-two-times-in-power-automate/#:~:text=To%20calculate%20a%20difference%20between,the%20days%2Fhours%2Fminutes.
+Divide by	To get
+864000000000	days
+36000000000	hours
+600000000	minutes
+10000000	seconds

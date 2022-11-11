@@ -1,0 +1,111 @@
+#Original em
+#https://learn.microsoft.com/en-us/microsoft-365/enterprise/manage-sharepoint-users-and-groups-with-powershell?view=o365-worldwide
+
+Get-SPOSite
+Get-SPOSite | ForEach {Get-SPOSiteGroup -Site $_.Url} | Format-Table
+Get-SPOSite | ForEach {Get-SPOUser -Site $_.Url}
+
+####You use the Set-SPOUser cmdlet to add a user to the list of Site Collection Administrators on a site collection.#
+
+$tenant = "<tenant name, such as litwareinc for litwareinc.com>"
+$site = "<site name>"
+$user = "<user account name, such as opalc>"
+Set-SPOUser -Site https://$tenant.sharepoint.com/sites/$site -LoginName $user@$tenant.com -IsSiteCollectionAdmin $true
+
+#For example, this set of commands adds Opal Castillo 
+#(user name opalc) to the list of Site Collection Administrators on the ContosoTest site collection in the Contoso tenancy:
+
+$tenant = "contoso"
+$site = "contosotest"
+$user = "opalc"
+Set-SPOUser -Site https://$tenant.sharepoint.com/sites/$site -LoginName $user@$tenant.com -IsSiteCollectionAdmin $true
+
+#In this task, we'll use the Add-SPOUser cmdlet to add a user to a SharePoint group on a site collection.
+
+$tenant = "<tenant name, such as litwareinc for litwareinc.com>"
+$site = "<site name>"
+$user = "<user account name, such as opalc>"
+$group = "<group name name, such as Auditors>"
+Add-SPOUser -Group $group -LoginName $user@$tenant.com -Site https://$tenant.sharepoint.com/sites/$site
+
+#For example, let's add Glen Rife (user name glenr) to the Auditors group on the ContosoTest site collection in the contoso tenancy:
+
+$tenant = "contoso"
+$site = "contosotest"
+$user = "glenr"
+$group = "Auditors"
+Add-SPOUser -Group $group -LoginName $user@$tenant.com -Site https://$tenant.sharepoint.com/sites/$site
+
+##You use the New-SPOSiteGroup cmdlet to create a new SharePoint group and add it to a site collection.
+
+$tenant = "<tenant name, such as litwareinc for litwareinc.com>"
+$site = "<site name>"
+$group = "<group name name, such as Auditors>"
+$level = "<permission level, such as View Only>"
+New-SPOSiteGroup -Group $group -PermissionLevels $level -Site https://$tenant.sharepoint.com/sites/$site
+
+#For example, let's add the Auditors group with View Only permissions to the contosotest site collection in the contoso tenancy:
+$tenant = "contoso"
+$site = "contosotest"
+$group = "Auditors"
+$level = "View Only"
+New-SPOSiteGroup -Group $group -PermissionLevels $level -Site https://$tenant.sharepoint.com/sites/$site
+
+#We'll be using the 'Remove-SPOUser' cmdlet to remove a single Microsoft 365 user from a site collection group so we can see 
+#the command syntax. Here's how the syntax looks:
+
+$tenant = "<tenant name, such as litwareinc for litwareinc.com>"
+$site = "<site name>"
+$user = "<user account name, such as opalc>"
+$group = "<group name name, such as Auditors>"
+Remove-SPOUser -LoginName $user@$tenant.com -Site https://$tenant.sharepoint.com/sites/$site -Group $group
+
+#For example, let's remove Bobby Overby from the site collection Auditors group in the contosotest
+# site collection in the contoso tenancy:
+
+$tenant = "contoso"
+$site = "contosotest"
+$user = "bobbyo"
+$group = "Auditors"
+Remove-SPOUser -LoginName $user@$tenant.com -Site https://$tenant.sharepoint.com/sites/$site -Group $group
+
+#Suppose we wanted to remove Bobby from all the groups he's currently in. Here's how we would do that:
+$tenant = "contoso"
+$user = "bobbyo"
+Get-SPOSite | ForEach {Get-SPOSiteGroup –Site $_.Url} | ForEach {Remove-SPOUser -LoginName $user@$tenant.com -Site $_.Url}
+
+##For the next step, you must have the two CSV files saved to your drive. 
+#Here are example commands that use both CSV files and to add permissions and group membership:
+
+Import-Csv C:\O365Admin\GroupsAndPermissions.csv | ForEach {New-SPOSiteGroup -Group $_.Group -PermissionLevels $_.PermissionLevels -Site $_.Site}
+Import-Csv C:\O365Admin\Users.csv | ForEach {Add-SPOUser -Group $_.Group –LoginName $_.LoginName -Site $_.Site}
+
+#Now, let's remove a bunch of people for several groups in different sites using the same CSV file. Here's an example command:
+Import-Csv C:\O365Admin\Users.csv | ForEach {Remove-SPOUser -LoginName $_.LoginName -Site $_.Site -Group $_.Group}
+
+#You might want to get a report for a few sites and display the users for those sites,
+#their permission level, and other properties. This is how the syntax looks:
+$tenant = "<tenant name, such as litwareinc for litwareinc.com>"
+$site = "<site name>"
+Get-SPOUser -Site https://$tenant.sharepoint.com/sites/$site | select * | Format-table -Wrap -AutoSize | Out-File c\UsersReport.txt -Force -Width 360 -Append
+
+#For example, let's run a report on the ContosoTest, TeamSite01, and Project01 sites for the Contoso1 tenant:
+$tenant = "contoso"
+$site = "contosotest"
+Get-SPOUser -Site https://$tenant.sharepoint.com/sites/$site | Format-Table -Wrap -AutoSize | Out-File c:\UsersReport.txt -Force -Width 360 -Append
+$site = "TeamSite01"
+Get-SPOUser -Site https://$tenant.sharepoint.com/sites/$site |Format-Table -Wrap -AutoSize | Out-File c:\UsersReport.txt -Force -Width 360 -Append
+$site = "Project01"
+Get-SPOUser -Site https://$tenant.sharepoint.com/sites/$site | Format-Table -Wrap -AutoSize | Out-File c:\UsersReport.txt -Force -Width 360 -Append
+
+$tenant = "contoso"
+$site = "contosotest"
+Get-SPOUser -Site https://$tenant.sharepoint.com/sites/$site | Format-Table -Wrap -AutoSize | Out-File c:\UsersReport.txt -Force -Width 360 -Append
+$site = "TeamSite01"
+Get-SPOUser -Site https://$tenant.sharepoint.com/sites/$site |Format-Table -Wrap -AutoSize | Out-File c:\UsersReport.txt -Force -Width 360 -Append
+$site = "Project01"
+Get-SPOUser -Site https://$tenant.sharepoint.com/sites/$site | Format-Table -Wrap -AutoSize | Out-File c:\UsersReport.txt -Force -Width 360 -Append
+
+#However, what if you wanted to do this for every site?
+# You can do this without having to type all those websites by using this command:
+Get-SPOSite | ForEach {Get-SPOUser –Site $_.Url} | Format-Table -Wrap -AutoSize | Out-File c:\UsersReport.txt -Force -Width 360 -Append

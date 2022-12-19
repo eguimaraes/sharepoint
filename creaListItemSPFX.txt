@@ -1,0 +1,35 @@
+  public render(): React.ReactElement<IFormAgergsProps> {
+
+    const salvar=()=>{
+
+      
+        const currentWebUrl: string =this.props.contextoPagina.web.absoluteUrl;
+        
+      
+        const spHttpClient: SPHttpClient = this.props.contexto.spHttpClient;
+       
+           
+    
+        const currentTime: string = new Date().toString();
+        const spOpts: ISPHttpClientOptions = {
+          headers: {
+            'Accept': 'application/json;odata=nometadata',
+            'Content-type': 'application/json;odata=nometadata',
+            'odata-version': ''
+          },
+          body: `{ Title: 'testetsS'}`
+        };
+    
+    
+        spHttpClient.post(`${currentWebUrl}/_api/web/lists/getByTitle('Processos')/items`, SPHttpClient.configurations.v1, spOpts)
+          .then((response: SPHttpClientResponse) => {
+    
+            console.log(`Status code: ${response.status}`);
+            console.log(`Status text: ${response.statusText}`);
+    
+    
+            response.json().then((responseJSON: JSON) => {
+              console.log(responseJSON);
+            });
+          });
+      

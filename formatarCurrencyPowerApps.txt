@@ -1,0 +1,4 @@
+Text(
+    Value(lblTotalTools.Text),
+    "[$-en-US]$#,###.00"
+)

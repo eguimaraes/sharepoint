@@ -1,0 +1,4 @@
+Text(
+    Value(DataDogCusto.Text),
+    "[$-en-US]$#,###.00"
+)

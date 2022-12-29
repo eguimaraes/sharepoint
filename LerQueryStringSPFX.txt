@@ -1,0 +1,3 @@
+import { UrlQueryParameterCollection } from '@microsoft/sp-core-library';
+var queryParms = new UrlQueryParameterCollection(window.location.href);
+var myParm = queryParms.getValue("myParam");

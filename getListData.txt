@@ -1,0 +1,24 @@
+private _getListData():void {
+  this.spHttpClient.get(`${this.currentWebUrl}/_api/web/lists/GetByTitle('Processos')/items`, SPHttpClient.configurations.v1)
+    .then((response: SPHttpClientResponse) => {     
+
+      response.json().then((response: any) => {
+        console.log(response.value);
+        
+        this._renderList(response.value);  }).then(()=>{
+
+          ReactDom.render(this.form, document.getElementById("formFrame"));
+
+
+
+        }).catch(() => {});     
+     
+
+     
+    })
+    .catch(() => { });
+    
+    
+    
+    
+    

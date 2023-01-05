@@ -1,0 +1,21 @@
+private _renderList(items: ISPDado[]): void {
+  let html: string = '';
+  items.forEach((item: ISPDado) => {
+
+      let linkRelativo:string=location.pathname+"?idItem="+item.dadddosoos;
+   
+      let linkCompleto=<a href={linkRelativo}>{item.dadododod}</a>
+
+
+
+    this.list.push(
+ 
+
+
+   controleHTML ao render
+ 
+      )
+
+
+
+    });

@@ -1,0 +1,29 @@
+import * as React from 'react';
+import * as ReactDom from 'react-dom';
+
+import styles from './FormAgergs.module.scss';
+import { IFormAgergsProps } from './kjkjkj';
+import { escape } from '@microsoft/sp-lodash-subset';
+import { SPComponentLoader } from '@microsoft/sp-loader';
+import { UrlQueryParameterCollection } from '@microsoft/sp-core-library';
+import { useEffect, useState, FC } from 'react';
+
+
+import { SPHttpClient,
+  SPHttpClientConfiguration,
+   SPHttpClientResponse, 
+   ODataVersion, 
+   ISPHttpClientConfiguration, 
+   ISPHttpClientOptions,/*
+   ISPHttpClientBatchOptions,
+   SPHttpClientBatch,
+ISPHttpClientBatchCreationOptions*/ } from '@microsoft/sp-http';
+import { Link, TextField } from 'office-ui-fabric-react';
+
+export interface ISPDados {
+  value: ISPDado[];
+}
+
+export interface ISPDado {
+  Title: string;
+  Id: string;

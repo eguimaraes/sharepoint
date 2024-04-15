@@ -1,0 +1,26 @@
+{
+  "sections": [
+    {
+      "displayname": "",
+      "fields": [
+        "Title"
+      ]
+    },
+    {
+      "displayname": "Details",
+      "fields": [
+        "Department",
+        "Email",
+        "Country"
+      ]
+    },
+    {
+      "displayname": "Application",
+      "fields": [
+        "Application Id",
+        "Approver",
+        "Reviewer"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+    "elmType": "div",
+    "style": {
+        "width": "100%",
+        "text-align": "left",
+        "overflow": "hidden",
+        "border-top-width": "1px"
+    },
+    "children": [
+        {
+            "elmType": "div",
+            "style": {
+                "width": "100%",
+                "padding-top": "10px",
+                "height": "24px"
+            },
+            "children": [
+                {
+                    "elmType": "a",
+                    "txtContent": "='Contact Details for ' + [$Title]",
+                    "attributes": {
+                        "target": "_blank",
+                        "href": "='https://aka.ms/contacts?email=' + [$Email]",
+                        "class": "ms-fontColor-themePrimary ms-borderColor-themePrimary ms-fontWeight-semibold ms-fontSize-m ms-fontColor-neutralSecondary–hover ms-bgColor-themeLight–hover"
+                    }
+                }
+            ]
+        }
+    ]
+}

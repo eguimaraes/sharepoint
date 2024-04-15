@@ -1,0 +1,19 @@
+{
+  "sections": [
+    {
+      //give a display name for the section
+      "displayname": "",
+      "fields": [
+        //reference your fields here using their display name
+        "Title"
+      ]
+    },
+    {
+      //give a display name for the section
+      "displayname": "",
+      "fields": [
+        //reference your fields here using their display name
+      ]
+    }
+  ]
+}

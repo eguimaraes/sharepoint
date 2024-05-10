@@ -1,0 +1,46 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/row-formatting.schema.json",
+  "hideSelection": true,
+  "hideColumnHeader": true,
+  "rowFormatter": {
+    "elmType": "div",
+    "attributes": {
+      "class": "sp-row-card"
+    },
+    "children": [
+      {
+        "elmType": "div",
+        "style": {
+          "text-align": "left"
+        },
+        "children": [
+          {
+            "elmType": "div",
+            "attributes": {
+              "class": "sp-row-title"
+            },
+            "txtContent": "[$Title]"
+          },
+          {
+            "elmType": "div",
+            "attributes": {
+              "class": "sp-row-listPadding"
+            },
+            "txtContent": "[$Contrato]"
+          },
+          {
+            "elmType": "button",
+            "customRowAction": {
+              "action": "executeFlow",
+              "actionParams": "{\"id\": \"ssss\"}"
+            },
+            "txtContent": "Criar Relatório",
+            "attributes": {
+              "class": "sp-row-button"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

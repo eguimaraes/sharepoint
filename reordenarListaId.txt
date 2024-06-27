@@ -1,0 +1,1 @@
+[your site URL]/_layouts/15/Reorder.aspx?List=[your list GUID]

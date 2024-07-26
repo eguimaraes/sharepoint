@@ -1,0 +1,30 @@
+Choices([@Inspeção].VINCULAR_x0020_LISTA_x0020_DE_x0)
+
+Filter(Choices(Cores.NomeCor), Value in Filter('List B', Facility.Value = DataCardValue3.Selected.Value).NomeCor)
+
+Filter(Choices([@Inspeção].VINCULAR_x0020_LISTA_x0020_DE_x0), Value in Filter('List B', Facility.Value = DataCardValue3.Selected.Value).NomeCor )
+
+
+Choices([@Inspeção].VINCULAR_x0020_LISTA_x0020_DE_x0)
+
+Choices([@Documentos].Nome)
+
+Filter(Choices([@Inspeção].VINCULAR_x0020_LISTA_x0020_DE_x0), !IsBlank(ThisItem.'VINCULAR LISTA DE PROJETO A SER ANALISADO'))
+
+DataCardValue11
+
+Filter(Documentos,Documentos[@Contrato_x003a_N_x00fa_mero_x0020_do_x0020_Contrato].Value = DataCardValue1.Selected.Value)
+
+Filter(Choices(Inspeção[@VINCULAR_x0020_LISTA_x0020_DE_x0]), !IsBlank(Value))
+
+
+Filter(Choices([@Inspeção].VINCULAR_x0020_LISTA_x0020_DE_x0) Value in Filter(Documentos,Documentos[@Contrato_x003a_N_x00fa_mero_x0020_do_x0020_Contrato].Value = DataCardValue1.Selected.Value))
+
+
+Filter(Documentos,Documentos[@Contrato_x003a_N_x00fa_mero_x0020_do_x0020_Contrato].Value = DataCardValue1.Selected.Value)
+
+ilter(Documentos,Documentos[@Contrato_x003a_N_x00fa_mero_x0020_do_x0020_Contrato].Value = DataCardValue1.Selected.Value)
+
+Filter(Documentos,Documentos[@Contrato_x003a_N_x00fa_mero_x0020_do_x0020_Contrato].Value = DataCardValue1.Selected.Value)
+
+

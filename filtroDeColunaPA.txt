@@ -1,0 +1,1 @@
+Filter(Documentos,Documentos[@nomeColuna].Value = DataCardValue1.Selected.Value)

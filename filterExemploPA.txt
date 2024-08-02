@@ -1,0 +1,3 @@
+Set(LisA, ListATable);
+Set(ListB, ListBTable);
+Set(FilteredData, Filter(LisA, Title in ListB.Title ))

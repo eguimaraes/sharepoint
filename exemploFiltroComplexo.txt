@@ -1,0 +1,5 @@
+contratoScrTxt=DataCardValue1.Selected.Value;
+arquivos=Choices([@Inspeção].'VINCULAR LISTA DE PROJETO A SER ANALISADO');
+arquivosOriginais=Documentos[@'Contrato:Número do Contrato'];
+arquivosPasta=Filter(Documentos, ContratoScr=contratoScrTxt);
+arquivosFiltrados=Filter(arquivos,Value in Filter(Documentos,ContratoScr=contratoScrTxt).Title);
